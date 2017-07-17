@@ -23,6 +23,7 @@ var app = {
     
     // Application Constructor
     initialize: function() {
+        alert("pronto");
         this.bindEvents();
     },
     // Bind Event Listeners
