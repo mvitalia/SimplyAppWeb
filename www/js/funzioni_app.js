@@ -273,7 +273,7 @@ $(document).on("pageshow", "#home", function () {
 $(document).on("pageshow", "#dashboard", function () {
     // Popolo la mia tabella utenti del DB chemi servirà poi in condividi per sapere le configurazioni utente
     // Procedura per inserire nome e cognome utente loggatto
-
+  app.initialize();
     var nome_cognome_utente = localStorage.getItem("nome_utente") + " " + localStorage.getItem("cognome_utente");
     $(".appendi_html").html("");
     $(".appendi_html").append(nome_cognome_utente);
