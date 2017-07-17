@@ -28,6 +28,7 @@ $(document).ready(function () {
         },
         
         submitHandler: function (form) {
+           alert("si");
              var usernameLogin = $("#usernameLogin").val();
              var passLogin = $("#passwordLogin").val();
             // alert(usernameLogin + " " + passLogin);
