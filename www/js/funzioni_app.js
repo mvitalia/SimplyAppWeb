@@ -28,7 +28,7 @@ $(document).ready(function () {
         },
         
         submitHandler: function (form) {
-           alert("si");
+          
              var usernameLogin = $("#usernameLogin").val();
              var passLogin = $("#passwordLogin").val();
             // alert(usernameLogin + " " + passLogin);
@@ -256,8 +256,7 @@ $(document).ready(function () {
 
 $(document).on("pageshow", "#home", function () {
     // Creao il database e la tabella utente che servira poi per caricare i dati dell'utente loggato
-   alert("ok");
-   app.initialize();
+  
     creazioneDatabase();
    /* if(localStorage.getItem("login")==true)
     {
