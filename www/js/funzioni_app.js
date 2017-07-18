@@ -470,7 +470,12 @@ function loginUtente(usernameLogin, passLogin) {
                 localStorage.setItem('ID_utente', data.d.ID);
                 localStorage.setItem('login', true);
                 localStorage.setItem('foto_utente', data.d.foto);
-                document.location.href = "index.html#dashboard";
+               $.mobile.pageContainer.pagecontainer("change", "#dashboard", {
+    
+        transition: 'flip',
+      
+       
+    });
             }
            
           
