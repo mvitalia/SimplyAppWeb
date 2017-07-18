@@ -470,7 +470,7 @@ function loginUtente(usernameLogin, passLogin) {
                 localStorage.setItem('ID_utente', data.d.ID);
                 localStorage.setItem('login', true);
                 localStorage.setItem('foto_utente', data.d.foto);
-               $.mobile.pageContainer.pagecontainer("change", "#dashboard", {
+               $.mobile.pageContainer.pagecontainer("change", "#condividi", {
     
         transition: 'flip',
       
