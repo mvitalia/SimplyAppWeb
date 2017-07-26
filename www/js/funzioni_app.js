@@ -1537,7 +1537,7 @@ function selezionoDatiSingolaFotoGallery()
 {
     var nome_categoria = localStorage.getItem("nome_categoria_singola_foto");
     // Faccio la selezione dal server delle new di questo utente
-    $.getJSON("http://simplyappweb.mvclienti.com/webservices/categorie_gallery.aspx", function (dati) {
+    $.getJSON("http://simplyappweb.mvclienti.com/webservices/categorie_gallery.aspx?id_utente=" + localStorage.getItem("ID_utente") + "", function (dati) {
         var id_selezionato = "";
         var tab_categorie = "<div  class='controls'><label>Categorie:</label>";
         $.each(dati, function (i, categorie) {
@@ -1656,7 +1656,7 @@ function salvaFotoSingolaGallery()
 function selezionoCategoriePerFiltri() {
     // Faccio la selezione dal server delle new di questo utente
   
-    $.getJSON("http://simplyappweb.mvclienti.com/webservices/categorie_gallery.aspx", function (dati) {
+    $.getJSON("http://simplyappweb.mvclienti.com/webservices/categorie_gallery.aspx?id_utente=" + localStorage.getItem("ID_utente") + "", function (dati) {
         var id_selezionato = "";
         var tab_categorie = "<div  class='controls'><label>Filtri:</label>";
         $.each(dati, function (i, categorie) {
