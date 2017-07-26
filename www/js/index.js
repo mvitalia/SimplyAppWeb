@@ -599,9 +599,9 @@ var app = {
             db.transaction(
                 // Metodo di chiamata asincrona
                 function (tx) {
-                    alert(ID_user);
+                  
                     tx.executeSql("INSERT INTO media (nome_file,ID_user,tipo) VALUES (?,?,?)", [imageURI, ID_user, tipo]);
-                    alert("Va");
+                  
                     $(".appendi_img_modifica").hide();
                     uploadFotoModificaFile.setAttribute('style', 'display:block;');
                 },
@@ -611,7 +611,7 @@ var app = {
                 },
                 function () {
                     // Scommenta per vedere il corretto inserimento
-                     alert("Immagine inserita nel db");
+                    // alert("Immagine inserita nel db");
                 }
             )
 
