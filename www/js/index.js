@@ -179,7 +179,7 @@ var app = {
         db.transaction(selezionoImg, erroreSelezioneDati, successoSelezioneDati);
         
         function selezionoImg(tx) {
-            // Serve per contare se almeno c'è uno tra news/promo/eventi/gallery/ per poi append html
+            // Serve per contare se almeno c'Ã¨ uno tra news/promo/eventi/gallery/ per poi append html
           
                
                 tx.executeSql("SELECT * FROM media ", [],
@@ -251,9 +251,9 @@ var app = {
             } 
         }
 
-        function fail(error) {
+      /*  function fail(error) {
             alert("An error has occurred: Code = " = error.code);
-        }
+        }*/
         
     },
 
@@ -271,7 +271,7 @@ var app = {
                 tx.executeSql("DELETE FROM media WHERE nome_file=?", [nome_file_cancellare]);
             },
             function () {
-               // alert("Non è stato possibile cancellare la notizia. Riprova");
+               // alert("Non Ã¨ stato possibile cancellare la notizia. Riprova");
 
             },
             function () {
@@ -482,9 +482,9 @@ var app = {
         }
 
         // Errore upload
-        function failGallery(error) {
+      /*  function failGallery(error) {
             alert("An error has occurred: Code = " = error.code);
-        }
+        }*/
 
     },
 
@@ -506,7 +506,7 @@ var app = {
                 tx.executeSql("DELETE FROM gallery WHERE immagine=?", [nome_file_cancellare]);
             },
             function () {
-               // alert("Non è stato possibile cancellare la notizia. Riprova");
+               // alert("Non Ã¨ stato possibile cancellare la notizia. Riprova");
 
             },
             function () {
@@ -628,7 +628,7 @@ var app = {
         db.transaction(selezionoImgModifica, erroreSelezioneDati, successoSelezioneDati);
 
         function selezionoImgModifica(tx) {
-            // Serve per contare se almeno c'è uno tra news/promo/eventi/gallery/ per poi append html
+            // Serve per contare se almeno c'Ã¨ uno tra news/promo/eventi/gallery/ per poi append html
 
            
             tx.executeSql("SELECT * FROM media ", [],
@@ -702,9 +702,9 @@ var app = {
             }
         }
 
-        function fail(error) {
+      /*  function fail(error) {
             alert("An error has occurred: Code = " = error.code);
-        }
+        }*/
 
     },
 
@@ -720,7 +720,7 @@ var app = {
                 tx.executeSql("DELETE FROM media WHERE nome_file=?", [nome_file_cancellare]);
             },
             function () {
-                // alert("Non è stato possibile cancellare la notizia. Riprova");
+                // alert("Non Ã¨ stato possibile cancellare la notizia. Riprova");
 
             },
             function () {
@@ -837,9 +837,9 @@ var app = {
             }
         }
 
-        function fail(error) {
+      /*  function fail(error) {
             alert("An error has occurred: Code = " = error.code);
-        }
+        }*/
     },
 
 
