@@ -12,7 +12,7 @@
     <preference name="android-minSdkVersion" value="14" />
    
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
-    <plugin name="cordova-plugin-camera" spec="~2.3.0">
+    <plugin name="cordova-plugin-camera" spec="~2.4.0">
         <variable name="CAMERA_USAGE_DESCRIPTION" value="my message" />
         <variable name="NSPHOTOLIBRARYUSAGEDESCRIPTIONENTRY" value="my message" />
     </plugin>
