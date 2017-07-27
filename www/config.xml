@@ -31,16 +31,14 @@
     <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0" />
     <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
-    <preference name="SplashScreenDelay" value="3000" />  
-    <preference name="AutoHideSplashScreen" value="true" />  
-    <preference name="SplashScreen" value="www/res/screen/android" />  
-    <preference name="SplashMaintainAspectRatio" value="true" /> 
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
    
     <icon src="icon.png" />
     <platform name="android">
+        <preference name="SplashScreen" value="www/res/screen/android/drawable-land-ldpi-screen.png" />  
+        <splash src="www/res/screen/android/drawable-land-ldpi-screen.png"/>  
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
