@@ -565,8 +565,8 @@ footer.page-footer {
     animation-duration: 0.4s;
 }
 .m-scene .fadeinup {
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
+  /*  -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;*/
 }
 .m-scene .fadeindown {
     -webkit-animation-name: fadeInDown;
