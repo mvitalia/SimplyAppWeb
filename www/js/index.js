@@ -252,7 +252,7 @@ var app = {
         }
 
         function fail(error) {
-            alert("An error has occurred: Code = " = error.code);
+          //  alert("An error has occurred: Code = " = error.code);
         }
         
     },
@@ -483,7 +483,7 @@ var app = {
 
         // Errore upload
        function failGallery(error) {
-            alert("An error has occurred: Code = " = error.code);
+         //   alert("An error has occurred: Code = " = error.code);
         }
 
     },
@@ -703,7 +703,7 @@ var app = {
         }
 
         function fail(error) {
-            alert("An error has occurred: Code = " = error.code);
+          //  alert("An error has occurred: Code = " = error.code);
         }
 
     },
@@ -838,7 +838,7 @@ var app = {
         }
 
         function fail(error) {
-            alert("An error has occurred: Code = " = error.code);
+         //   alert("An error has occurred: Code = " = error.code);
         }
     },
 
