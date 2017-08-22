@@ -1047,7 +1047,120 @@
                 </div>
             </footer>
         </div> <!-- End of Page Container -->
-    
+          <div data-role="page" id="stili">
+        <div class="m-scene">
+            <!-- Main Container -->
+            <!-- Sidebars -->
+            <!-- Right Sidebar -->
+            <!-- End of Sidebars -->
+            <!-- Page Content -->
+            <div class="content">
+               
+               
+
+                <!-- Toolbar -->
+                <div class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="#open-right-1" data-activates="slide-out-1">
+                        <!--   <i class="ion-android-menu"></i> -->
+                        <a class="primary-text" href="#dashboard"><i class="ion-arrow-left-c"></i></a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="animated fadeinup">
+                    <div class="card animated fadeinup delay-3">
+                        <div class="c-widget">
+                            <div class="c-widget-figure ">
+                                <div class="appendi_foto_utente_nome">
+
+                                </div>
+                            </div>
+                            <div class="c-widget-body">
+                                <p class="m-0">Benvenuto</p>
+                                <p class="small m-0 appendi_html"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="appendi_argomenti_stili">
+
+                    </div>
+                    <div class="registrazione-form-condividi animated fadeinup delay-2 z-depth-1 paragrafo_center">
+                        <!-- Form Inputs -->
+                        <h1>Stili</h1>
+                        <form id="pubblicaSito">
+                            <div class="contenitore_checkbox">
+                                <h6>Pubblica su</h6>
+                                <p class="remember animated bouncein delay-6">
+
+                                    <div class="appendi_check">
+
+                                    </div>
+
+                                </p>
+                            </div>
+                            <div class="contenitore_checkbox">
+                                <p class="remember animated bouncein delay-6">
+                                    <div id="blocco_social">
+                                        <h6>Segli social</h6>
+                                        <div class="appendi_social">
+
+                                        </div>
+                                    </div>
+
+                                </p>
+                            </div>
+                            <div class="contenitore_pulsanti">
+                                <div onclick="app.openFilePicker();" class="blocco_condividi_img c-widget-figure accent-color">
+                                    <i class="ion-ios-plus"></i>
+                                </div>
+                                <div onclick="app.takePicture();" class="blocco_condividi_img c-widget-figure accent-color">
+                                    <i class="ion-camera"></i>
+                                </div>
+
+                            </div>
+                            <div class="grid">
+                                <div class="appendi_img">
+
+                                </div>
+
+                            </div>
+
+                            <div id="loadingImg">
+                                <img src="img/loading.gif" />
+                            </div>
+
+                            <div class="box_submit_button">
+                                <div onclick="app.caricaImmagine();" id="uploadFoto" style="position:relative !important" class="waves-effect waves-light  btn-large accent-color m-b-20 animated bouncein delay-4">
+                                    <i class="ion-upload">Upload Foto</i>
+                                </div>
+                                <input type="submit" data-role="none" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" value="Invia" id="btn_submit_infoMv">
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div> <!-- End of Main Contents -->
+
+
+            </div> <!-- End of Page Content -->
+            <a id="apri_box_caricamento" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_caricamento">Bottom Sheet</a>
+            <a id="apri_box_upload_foto" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_upload_foto">Bottom Sheet</a>
+            <a id="apri_scegli_pubblica_sito" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#scegli_pubblica_sito">Modal simple</a>
+            <a id="apri_scegli_argomento" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#scegli_argomento">Modal simple</a>
+
+            <!-- Footer -->
+            <footer class="page-footer  primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div> <!-- End of Page Container -->
+    </div>
     <!-- FINE PRIVACY POLICY -->
     <script type="text/javascript" src="cordova.js"></script>
     <script src="js/jquery-2.1.0.min.js"></script>
