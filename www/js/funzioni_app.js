@@ -441,6 +441,13 @@ $(document).on("pagebeforeshow", "#modifica", function () {
     )
 });
 
+$(document).on("pagebeforeshow", "#stili", function () {
+    $(".appendi_argomenti_stili").html("");
+});
+
+$(document).on("pageshow", "#stili", function () {
+    selezioneArgomentiUtenteStili();
+});
 
 // FUNZIONI APPLICAZIONE
 
@@ -1813,5 +1820,59 @@ $("#flip-aggiungi-categoria").bind("change", function (event, ui) {
     }
   
 });
-                           
+
+function selezioneArgomentiUtenteStili() {
+
+
+    db.transaction(selezionoArgomentiStili);
+}
+
+function selezionoArgomentiStili(tx) {
+    // Serve per contare se almeno c'è uno tra news/promo/eventi/gallery/ per poi append html
+    var count = 0;
+
+
+    tx.executeSql("SELECT * From utenti", [],
+    function (tx, dati) {
+        var len = dati.rows.length;
+
+
+
+        var tab_argomenti = "<div  class='controls'><label>Argomento:</label>";
+        if (len != 0) {
+            /* Qua compongo grafica tab news - eventi - promo - gallery */
+            if (dati.rows.item(0).news == 1) {
+                tab_argomenti += " <button onclick='clickNewsStili()' class='filter' id='newsStili' >News</button>"
+                count++;
+
+            }
+            if (dati.rows.item(0).eventi == 1) {
+                tab_argomenti += " <button onclick='clickEventiStili()' class='filter' id='eventiStili' >Eventi</button>"
+                count++;
+
+            }
+            if (dati.rows.item(0).promo == 1) {
+                tab_argomenti += " <button onclick='clickPromoStili()' class='filter' id='promoStili' >Promo</button>"
+                count++;
+
+            }
+            if (dati.rows.item(0).gallery == 1) {
+                tab_argomenti += " <button onclick='clickGalleryStili()' class='filter' id='galleryStili' >Gallery</button>"
+                count++;
+
+            }
+            tab_argomenti += "</div>";
+
+        }
+        $(".appendi_argomenti_stili").append(tab_argomenti);
+        
+
+
+
+    },
+    function () {
+        alert("Errore" + e.message);
+    });
+}
+
                    
