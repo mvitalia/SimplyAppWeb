@@ -1865,7 +1865,26 @@ function selezionoArgomentiStili(tx) {
 
         }
         $(".appendi_argomenti_stili").append(tab_argomenti);
-        
+        if (localStorage.getItem("condividi_storico") == null) {
+            clickNewsStili();
+        }
+        if (localStorage.getItem("condividi_storico") == "News") {
+            localStorage.removeItem('condividi_storico');
+            clickNewsStili();
+        }
+        if (localStorage.getItem("condividi_storico") == "Eventi") {
+            localStorage.removeItem('condividi_storico');
+            clickEventiStili();
+        }
+        if (localStorage.getItem("condividi_storico") == "Promo") {
+            localStorage.removeItem('condividi_storico');
+            clickPromoStili();
+        }
+        if (localStorage.getItem("condividi_storico") == "Promo") {
+            localStorage.removeItem('condividi_storico');
+            clickGalleryStili();
+        }
+
 
 
 
@@ -1873,6 +1892,186 @@ function selezionoArgomentiStili(tx) {
     function () {
         alert("Errore" + e.message);
     });
+}
+
+function clickNewsStili() {
+    $(".appendi_check_stili").html("");
+    $(".contenitore_pulsanti_stili").html("");
+    var stile_news = "";
+    $("#promoStili").removeClass("active");
+    $("#eventiStili").removeClass("active");
+    $("#galleryStili").removeClass("active");
+    $("#newsStili").addClass("active");
+    // Faccio la selezione dal server degli stili di questo utente
+    $.getJSON("http://simplyappweb.mvclienti.com/webservices/get_stili_utente.aspx?id_utente=" + localStorage.getItem("ID_utente") + "", function (dati) {
+        $.each(dati, function (i, stili) {
+            stile_news = stili.stileNews;
+           
+            elencoStiliCheckBox(stile_news, "News")
+        });
+    });
+  
+}
+
+function clickEventiStili() {
+    $(".appendi_check_stili").html("");
+    $(".contenitore_pulsanti_stili").html("");
+    var stile_news = "";
+    $("#promoStili").removeClass("active");
+    $("#newsStili").removeClass("active");
+    $("#galleryStili").removeClass("active");
+    $("#eventiStili").addClass("active");
+    // Faccio la selezione dal server degli stili di questo utente
+    $.getJSON("http://simplyappweb.mvclienti.com/webservices/get_stili_utente.aspx?id_utente=" + localStorage.getItem("ID_utente") + "", function (dati) {
+        $.each(dati, function (i, stili) {
+            stile_news = stili.stileEventi;
+
+            elencoStiliCheckBox(stile_news, "Eventi")
+        });
+    });
+
+}
+
+function clickPromoStili() {
+    $(".appendi_check_stili").html("");
+    $(".contenitore_pulsanti_stili").html("");
+    var stile_news = "";
+    $("#eventiStili").removeClass("active");
+    $("#newsStili").removeClass("active");
+    $("#galleryStili").removeClass("active");
+    $("#promoStili").addClass("active");
+    // Faccio la selezione dal server degli stili di questo utente
+    $.getJSON("http://simplyappweb.mvclienti.com/webservices/get_stili_utente.aspx?id_utente=" + localStorage.getItem("ID_utente") + "", function (dati) {
+        $.each(dati, function (i, stili) {
+            stile_news = stili.stilePromo;
+
+            elencoStiliCheckBox(stile_news, "Promo")
+        });
+    });
+
+}
+
+function clickGalleryStili() {
+    $(".appendi_check_stili").html("");
+    $(".contenitore_pulsanti_stili").html(""); 
+    var stile_news = "";
+    $("#eventiStili").removeClass("active");
+    $("#newsStili").removeClass("active");
+    $("#promoStili").removeClass("active");
+    $("#galleryStili").addClass("active");
+    // Faccio la selezione dal server degli stili di questo utente
+    $.getJSON("http://simplyappweb.mvclienti.com/webservices/get_stili_utente.aspx?id_utente=" + localStorage.getItem("ID_utente") + "", function (dati) {
+        $.each(dati, function (i, stili) {
+            stile_news = stili.stileGallery;
+
+            elencoStiliCheckBox(stile_news, "Gallery")
+        });
+    });
+
+}
+
+function elencoStiliCheckBox (stile, argomento)
+{
+    var contesto = argomento;
+ 
+    $.getJSON("http://simplyappweb.mvclienti.com/webservices/getStili.aspx?argomento=" + argomento + "", function (dati) {
+        var checkBoxStili = "<div class='selector'>";
+        $.each(dati, function (i, argomento) {
+            if (argomento.stile == stile)
+            {
+                checkBoxStili += "<div><input style='float:left !important;' data-role='none' checked type='radio' name='gruppo_stili' id='" + argomento.stile + "' onclick='clickCheckStile(\"" + argomento.stile + "\",\"" + contesto + "\")'  value='html' />  <label for='" + argomento.stile + "'>" + argomento.stile + "</label></div>"
+            } else {
+                checkBoxStili += "<div><input style='float:left !important;' data-role='none' type='radio' name='gruppo_stili' id='" + argomento.stile + "'  onclick='clickCheckStile(\"" + argomento.stile + "\",\"" + contesto + "\")' value='html' />  <label for='" + argomento.stile + "'>" + argomento.stile + "</label></div>"
+            }
+            
+           
+        });
+        checkBoxStili += "</div>";
+        $.ajax({
+            type: "POST",
+            data: '{stile:"' + stile + '", argomento:"' + argomento + '"}',
+            url: 'http://simplyappweb.mvclienti.com/webservices/servizi_app.aspx/restituisciAnteprima',
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            success: function (data) {
+                var ritorno = data.d;
+                var btn_default = "";
+                btn_default += "<div onclick='salvaStile()' class='btn btn_stili c-widget-figure accent-color'><span class='ion-edit'></span></div>";
+                btn_default += "<a href='#' onclick='apriAnteprima(\"" + ritorno + "\")' class='btn btn_stili c-widget-figure accent-color'><span class='ion-camera'></span></a>"
+               
+                $(".contenitore_pulsanti_stili").append(btn_default);
+
+            },
+            error: function (e) {
+              
+            }
+        });
+        $(".appendi_check_stili").append(checkBoxStili);
+    });
+}
+function clickCheckStile (stile, argomento)
+{
+    var contesto = argomento;
+    // Qua gestisco la scelta dello stile
+    $(".contenitore_pulsanti_stili").html("");
+    $.ajax({
+        type: "POST",
+        data: '{stile:"' + stile + '", argomento:"' + argomento + '"}',
+        url: 'http://simplyappweb.mvclienti.com/webservices/servizi_app.aspx/restituisciAnteprima',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'json',
+        success: function (data) {
+            var ritorno = data.d;
+            var btn_default = "";
+            btn_default += "<div onclick='salvaStile(\"" + stile + "\",\"" + contesto + "\")' class='btn btn_stili c-widget-figure accent-color'><span class='ion-edit'></span></div>";
+            btn_default += "<a href='#' onclick='apriAnteprima(\"" + ritorno + "\")' class='btn btn_stili c-widget-figure accent-color'><span class='ion-camera'></span></a>"
+            $(".contenitore_pulsanti_stili").append(btn_default);
+           
+
+        },
+        error: function (e) {
+          
+        }
+         
+    });
+}
+
+function salvaStile(stile, contesto)
+{
+   
+    $.ajax({
+        type: "POST",
+        data: '{ID:"' + localStorage.getItem('ID_utente') + '", stile:"' + stile + '", argomento:"' + contesto + '"}',
+        url: 'http://simplyappweb.mvclienti.com/webservices/servizi_app.aspx/updateStile',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'json',
+        success: function (data) {
+            var ritorno = data.d;
+            if (ritorno == "si") {
+                var siCaricamento = "<div class='modal-content'><h4>Stile Aggiornato </h4><p>Stile "+contesto+" Aggiornato</p></div>";
+                siCaricamento += "<div class='modal-footer'> <a href='#dashboard' class='modal-action modal-close waves-effect waves-green btn-flat'>Chiudi</a></div>";
+                $("#box_aggiornamento_stile").html("");
+                $("#box_aggiornamento_stile").append(siCaricamento);
+                $("#apri_box_aggiornamento_stile").click();
+            } else {
+                var noCaricamento = "<div class='modal-content'><h4>Stile Non Aggiornato </h4><p>Stile "+contesto+" Non Aggiornato.<br>Si prega di riprovare </p></div>";
+                noCaricamento += "<div class='modal-footer'> <a href='#' class='modal-action modal-close waves-effect waves-green btn-flat'>Chiudi</a></div>";
+                $("#box_aggiornamento_stile").html("");
+                $("#box_aggiornamento_stile").append(noCaricamento);
+                $("#apri_box_aggiornamento_stile").click();
+            }
+
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+function apriAnteprima(pagina)
+{
+    window.open(''+pagina+'', '_system');
 }
 
                    
