@@ -1996,8 +1996,8 @@ function elencoStiliCheckBox (stile, argomento)
             success: function (data) {
                 var ritorno = data.d;
                 var btn_default = "";
-                btn_default += "<div onclick='salvaStile()' class='btn btn_stili c-widget-figure accent-color'><span class='ion-edit'></span></div>";
-                btn_default += "<a href='#' onclick='apriAnteprima(\"" + ritorno + "\")' class='btn btn_stili c-widget-figure accent-color'><span class='ion-camera'></span></a>"
+                btn_default += "<div onclick='salvaStile()' class='btn btn_stili c-widget-figure accent-color'><span class='ion-checkmark'></span></div>";
+                btn_default += "<a href='#' onclick='apriAnteprima(\"" + ritorno + "\")' class='btn btn_stili c-widget-figure accent-color'><span class='ion-eye'></span></a>"
                
                 $(".contenitore_pulsanti_stili").append(btn_default);
 
@@ -2023,8 +2023,8 @@ function clickCheckStile (stile, argomento)
         success: function (data) {
             var ritorno = data.d;
             var btn_default = "";
-            btn_default += "<div onclick='salvaStile(\"" + stile + "\",\"" + contesto + "\")' class='btn btn_stili c-widget-figure accent-color'><span class='ion-edit'></span></div>";
-            btn_default += "<a href='#' onclick='apriAnteprima(\"" + ritorno + "\")' class='btn btn_stili c-widget-figure accent-color'><span class='ion-camera'></span></a>"
+            btn_default += "<div onclick='salvaStile(\"" + stile + "\",\"" + contesto + "\")' class='btn btn_stili c-widget-figure accent-color'><span class='ion-checkmark'></span></div>";
+            btn_default += "<a href='#' onclick='apriAnteprima(\"" + ritorno + "\")' class='btn btn_stili c-widget-figure accent-color'><span class='ion-eye'></span></a>"
             $(".contenitore_pulsanti_stili").append(btn_default);
            
 
