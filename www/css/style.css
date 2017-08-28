@@ -2892,4 +2892,14 @@ label {
     text-align:center;
 
 }
+
+.btn_stili{
+    padding:10px !important;
+   
+    height:60px !important;
+    width:60px !important;
+}
+[type="radio"]:not(:checked)+label, [type="radio"]:checked+label{
+    height:35px !important;
+}
  
