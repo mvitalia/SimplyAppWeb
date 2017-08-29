@@ -672,7 +672,7 @@ function  caricoDatiTabellaUtente()
         var li_dati = "";
         $.each(dati, function (i, utente) {
             // Inserisco dati nel db sqllite dell' App
-            localStorage.setItem('social', utente.checkSocial);
+            localStorage.setItem('social', utente.checkConfigurazione);
             db = window.openDatabase("SimplyAppWeb", "1.0", "Database simpliappweb", 200000);
             db.transaction(
                 // Metodo di chiamata asincrona
