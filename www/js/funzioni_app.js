@@ -673,6 +673,7 @@ function  caricoDatiTabellaUtente()
         $.each(dati, function (i, utente) {
             // Inserisco dati nel db sqllite dell' App
             localStorage.setItem('social', utente.checkConfigurazione);
+            localStorage.setItem('social_due', utente.checkSocial);
             db = window.openDatabase("SimplyAppWeb", "1.0", "Database simpliappweb", 200000);
             db.transaction(
                 // Metodo di chiamata asincrona
@@ -698,7 +699,7 @@ function  caricoDatiTabellaUtente()
 function caricoConfigurazioniSocial()
 {
    
-    var siSociale = localStorage.getItem("social");
+    var siSociale = localStorage.getItem("social_due");
     if(siSociale == 1)
     {
         // Carico nella tabella configurazioni
@@ -728,6 +729,8 @@ function caricoConfigurazioniSocial()
             selezioneDatiTabellaUtente();
         });
        
+    }else{
+            selezioneDatiTabellaUtente();
     }
 }
 
@@ -778,7 +781,7 @@ function selezionoDati (tx)
 {
     // Serve per contare se almeno c'è uno tra news/promo/eventi/gallery/ per poi append html
     var count = 0;
-    var siSociale = localStorage.getItem("social");
+    var siSociale = localStorage.getItem("social_due");
     if (siSociale == 1)
     {
        
@@ -848,15 +851,37 @@ function selezionoDati (tx)
           function (tx, dati) {
               var len = dati.rows.length;
               var checkBox = "";
+               var tab_argomenti = "<div  class='controls'><label>Argomento:</label>";
               if (len != 0) {
-                 
+                   if (dati.rows.item(0).news == 1) {
+                      tab_argomenti += " <button onclick='clickNews()' class='filter' id='news' >News</button>"
+                      count++;
+
+                  }
+                  if (dati.rows.item(0).eventi == 1) {
+                      tab_argomenti += " <button onclick='clickEventi()' class='filter' id='eventi' >Eventi</button>"
+                      count++;
+
+                  }
+                  if (dati.rows.item(0).promo == 1) {
+                      tab_argomenti += " <button onclick='clickPromo()' class='filter' id='promo' >Promo</button>"
+                      count++;
+
+                  }
+                  if (dati.rows.item(0).gallery == 1) {
+                      tab_argomenti += " <button onclick='clickGallery()' class='filter' id='gallery' >Gallery</button>"
+                      count++;
+
+                  }
                   if (dati.rows.item(0).sito == 1) {
                      checkBox += "<input data-role='none' type='checkbox' name='sito' id='sito' checked value='html' />  <label for='privacyMv'>Sito</label>"
                    
                     
                   }
 
-                 
+                  if (count > 0) {
+                      $(".appendi_argomenti").append(tab_argomenti);
+                  }
               
               }
               $(".appendi_check").append(checkBox);
