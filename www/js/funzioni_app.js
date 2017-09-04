@@ -1388,7 +1388,7 @@ function selezionoArgomentoModifica() {
 }
 
 function selezionoMediaArgomento() {
-    $.getJSON("http://simplyappweb.mvclienti.com/webservices/seleziono_media_argomento.aspx?id_argomento=" + localStorage.getItem("id_modifica_argomento") + "&argomento=" + localStorage.getItem("nome_argomento_modifica") + "", function (dati) {
+    $.getJSON("http://simplyappweb.mvclienti.com/webservices/seleziono_media_argomento.aspx?id_argomento=" + localStorage.getItem("id_modifica_argomento") + "&argomento=" + localStorage.getItem("nome_argomento_modifica") + "&ID_utente =" + localStorage.getItem("ID_utente") + "", function (dati) {
         // var blocco_news = "";
         var lunghezza = dati.length;
         var immagine = "";
