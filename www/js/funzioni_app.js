@@ -1410,7 +1410,7 @@ function cancellaFotoModifica(ID)
     // Cancello News 
     $.ajax({
         type: "POST",
-        data: '{ID:"' + ID + '"}',
+        data: '{ID:"' + ID + '", ID_utente: "' + localStorage.getItem('ID_utente') + '" }',
         url: 'http://simplyappweb.mvclienti.com/webservices/servizi_app.aspx/cancelloMediaArgomento',
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
