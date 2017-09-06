@@ -1,0 +1,1125 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *;img-src *" /> 
+    
+    <link href="css/jquery.mobile-1.4.5.css" rel="stylesheet" />
+    <!-- Fonts -->
+    <link href='../css/opensans.css' rel='stylesheet' type='text/css'>
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <title>Hello World</title>
+</head>
+
+<body>
+  
+    <div data-role="page" id="home">
+        <div class="m-scene" id="main">
+            <div  class="content login">
+                <!-- Toolbar -->
+                <div  class="toolbar tool-login primary-color animated fadeindown">
+                  <h3 class="titolo_home">Simply Web App</h3>
+                </div>
+                <!-- Modal Structure Bottom Sheet -->
+                <div id="box_successoLogin" class="modal">
+                  
+                </div>
+                <!-- Modal Trigger Simple -->
+                <a style="display:none" id="apri_alert" class="waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_successoLogin">Modal simple</a>
+                <!-- Main Content -->
+                <div class="login-form animated fadeinup delay-2 z-depth-1">
+                    <h1>Login</h1>
+                    <form id="loginApp">
+                        <div class="input-field">
+                            <i class="ion-android-contact prefix"></i>
+                            <input data-role="none"  name="usernameLogin" id="usernameLogin"   type="text">
+                            <label for="login">Username</label>
+                        </div>
+                        <div class="input-field" style="margin-bottom:20px;">
+                            <i class="ion-android-lock prefix"></i>
+                            <input data-role="none" name="passwordLogin" id="passwordLogin"   type="password">
+                            <label for="login-psw">Password</label>
+                        </div>
+                        <div class="box_submit_button">
+                            <input type="submit" data-role="none" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" value="Login" id="btn_submit">
+                        </div>
+                        </form>
+                        <p><span>Dimenticato la password? <a class="primary-text" href="#recupera_password">Recuperala</a></span></p>
+                        <p><span>Richiedi informazioni? <a class="primary-text" href="#richiedi_informazioni">Info</a></span></p>
+</div><!-- End of Main Contents -->
+
+               
+            </div> <!-- End of Page Content -->
+            <!-- Footer -->
+            <footer class="page-footer footer_home primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div> <!-- End of Page Container -->
+
+    </div>
+    <div data-role="page" id="dashboard">
+        <div class="m-scene" >
+            <!-- Main Container -->
+            <!-- Sidebars -->
+            <!-- Right Sidebar -->
+            <ul id="slide-out" class="side-nav collapsible">
+                <li>
+                    <div class="sidenav-header primary-color">
+                        <div class="nav-social">
+                            <!--
+                            <i class="ion-social-facebook"></i>
+                            <i class="ion-social-twitter"></i>
+                            <i class="ion-social-tumblr"></i>-->
+                        </div>
+                        <div class="nav-avatar">
+                            <div class="appendi_foto_utente_menu">
+                               
+                            </div>
+                            <div class="avatar-body">
+                                <h3 class="titolo_mv">Mvitalia</h3>
+                                <p>Simply App Web</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li><a href="#dashboard" class="no-child"><i class="ion-android-home"></i> Home</a></li>
+                <li><a href="#condividi" class="no-child"><i class="ion-social-rss"></i> Condividi</a></li>
+                <li><a href="#" onclick="window.open('http://simplyappweb.mvclienti.com/', '_system');"  class="no-child"><i class="ion-soup-can"></i> Area amministrativa</a></li>
+                <li><a href="#storico" class="no-child"><i class="ion-briefcase"></i> Storico</a></li>
+                <li><a href="#" onclick="apriAllertLogout()" class="no-child"><i class="ion-android-map"></i> Logout</a></li>
+            </ul>
+            <!-- End of Sidebars -->
+            <!-- Page Content -->
+            <div class="content">
+                <!-- Toolbar -->
+                <div  class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="open-right" data-activates="slide-out">
+                        <i class="ion-android-menu"></i>
+                    </div>
+                </div>
+                <div id="box_Logout" class="modal">
+                    <div class="modal-content">
+                        <h4>Logout App</h4>
+                        <p>Sei sicuro di voler effettuare il logout?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
+                        <a href="#!" onclick="logoutApp()" class="modal-action modal-close waves-effect waves-green btn-flat">Si</a> 
+                    </div>
+                </div>
+                <!-- Modal Trigger Simple -->
+                <a style="display:none" id="apri_alert_logout" class="waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_Logout">Modal simple</a>
+                <!-- Main Content -->
+                <div class="animated fadeinup">
+                    <div class="card animated fadeinup delay-3">
+                        <div class="c-widget">
+                            <div class="c-widget-figure ">
+                               <div class="appendi_foto_utente_nome">
+
+                               </div>
+                            </div>
+                            <div class="c-widget-body">
+                                <p class="m-0">Benvenuto</p>
+                                <p class="small m-0 appendi_html"></p>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="box_titoli_page">
+                        <h1>Dashboard</h1>
+                    </div>
+                    <div class="box_btn_dashboard">
+                        <a href="#condividi" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" >Condividi </a>
+                    </div>
+                    <div class="box_btn_dashboard">
+                        <a href="#storico" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4">Storico </a>
+                    </div>
+                    <div class="box_btn_dashboard">
+                        <a href="#" onclick="window.open('http://simplyappweb.mvclienti.com/', '_system');" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4">Area Amministrativa</a>
+                    </div>
+                    <div>
+                      
+                    </div>
+                </div> <!-- End of Main Contents -->
+
+             
+            </div> <!-- End of Page Content -->
+            <!-- Footer -->
+            <footer class="page-footer footer_home primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div> <!-- End of Page Container -->
+    </div>
+    <div id="richiedi_informazioni" data-role="page">
+        <div class="m-scene">
+           
+            <!-- Page Content -->
+            <div class="content">
+                <div id="box_infoMvitalia" class="modal bottom-sheet">
+
+                </div>
+                <!-- Toolbar -->
+                <div  class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="open-right" data-activates="slide-out">
+                        <a class="primary-text" href="#home"><i class="ion-arrow-left-c"></i></a>
+                       
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="registrazione-form animated fadeinup delay-2 z-depth-1 paragrafo_center">
+                    <!-- Form Inputs -->
+                    <h1>Richiedi informazioni</h1>
+                    <form id="inviaInfoMv">
+                        <div>
+                            <div class="input-field animated fadeinright no_display">
+                                <input data-role="none" name="prova" id="prova" value="" type="text" required>
+                                <label for="nomeMv">Nome</label>
+                            </div>
+                            <div class="input-field animated fadeinright">
+                                <input data-role="none" name="nomeMv" id="nomeMv" value="" type="text" required>
+                                <label for="nomeMv">Nome</label>
+                            </div>
+                            <div class="input-field animated fadeinright delay-1">
+                                <input data-role="none" name="cognomeMv" id="cognomeMv" value="" type="text" required>
+                                <label for="cognomeMv">Cognome</label>
+                            </div>
+                        </div>
+                        <div class="input-field animated fadeinright delay-2">
+                            <input data-role="none" name="emailMv" id="emailMv" value="" type="text" required>
+                            <label for="emailMv">E-mail</label>
+                        </div>
+                        <div class="input-field animated fadeinright delay-3">
+                            <textarea data-role="none" class="materialize-textarea" id="richiestaMv" name="richiestaMv" required></textarea>
+                            <label for="richiestaMv">Richiesta</label>
+                        </div>
+                        <div class="privacy">
+                            <h3>Privacy</h3>
+                            <p>Per avere ulteriori informazioni completa il modulo online con i tuoi dati (che saranno utilizzati esclusivamente per soddisfare la tua richiesta, nel più assoluto rispetto della privacy).</p>
+                            <p>Per maggiori informazioni <a href="#privacy_policy">clicca qui</a> </p>
+                        </div>
+                        <p class="remember animated bouncein delay-6">
+                            <input data-role="none" type="checkbox" name="privacyMv" id="privacyMv" value="html" required />
+                            <label for="privacyMv">Acconsento privacy</label>
+                        </p>
+                        <div class="box_submit_button">
+                            <input type="submit" data-role="none" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" value="Invia" id="btn_submit_infoMv">
+                        </div>
+                        <div class="wrapper_logo">
+                            <a href="http://www.mvitalia.com/"><img class="logo_mv" src="img/logo_mvitalia.png" /></a>
+                        </div>
+
+                    </form>
+                </div>
+                <a id="apri_box_infoMvitalia" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_infoMvitalia">Bottom Sheet</a>
+                <!-- Footer -->
+                <footer class="page-footer  primary-color">
+                    <div class="footer-copyright blue darken-1">
+                        <div class="container">
+                            2017 Simply App web
+                            <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                        </div>
+                    </div>
+                </footer>
+            </div> <!-- End of Main Contents -->
+        </div> <!-- End of Page Content -->
+    </div>
+    <div id="recupera_password" data-role="page">
+        <div class="m-scene">
+
+            <!-- Page Content -->
+            <div class="content">
+                <div id="box_recupera_pass" class="modal bottom-sheet">
+
+                </div>
+                <!-- Toolbar -->
+                <div  class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="open-right" data-activates="slide-out">
+                        <a class="primary-text" href="#home"><i class="ion-arrow-left-c"></i></a>
+
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="registrazione-form animated fadeinup delay-2 z-depth-1 paragrafo_center">
+                    <!-- Form Inputs -->
+                    <h1>Recupera Password</h1>
+                    <form id="getPassword">
+                        <div>
+                            <div class="input-field animated fadeinright">
+                                <i class="ion-android-contact prefix"></i>
+                                <input data-role="none" name="userEmail" id="userEmail" type="text">
+                                <label for="login">Inserire E-mail o Username</label>
+                            </div>
+                            
+                        </div>
+                        <div class="box_submit_button">
+                            <input type="submit" data-role="none" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" value="Invia" id="btn_submit_infoMv">
+                        </div>
+                        
+
+                    </form>
+                </div>
+                <a id="apri_box_recuperaPassword" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_recupera_pass">Bottom Sheet</a>
+                <!-- Footer -->
+                <footer class="page-footer footer_home  primary-color">
+                    <div class="footer-copyright blue darken-1">
+                        <div class="container">
+                            2017 Simply App web
+                            <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                        </div>
+                    </div>
+                </footer>
+            </div> <!-- End of Main Contents -->
+        </div> <!-- End of Page Content -->
+    </div>
+    <div data-role="page" id="condividi">
+        <div class="m-scene">
+            <!-- Main Container -->
+            <!-- Sidebars -->
+            <!-- Right Sidebar -->
+            <!-- End of Sidebars -->
+            <!-- Page Content -->
+            <div  class="content">
+                <div id="box_caricamento" class="modal bottom-sheet">
+
+                </div>
+                <div id="box_upload_foto" class="modal bottom-sheet">
+
+                </div>
+                
+                <div id="scegli_pubblica_sito" class="modal">
+
+                </div>
+                <div id="scegli_argomento" class="modal">
+
+                </div>
+                
+                <!-- Toolbar -->
+                <div class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="#open-right-1" data-activates="slide-out-1">
+                     <!--   <i class="ion-android-menu"></i> -->
+                        <a class="primary-text" href="#dashboard"><i class="ion-arrow-left-c"></i></a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="animated fadeinup">
+                    <div class="card animated fadeinup delay-3">
+                        <div class="c-widget">
+                            <div class="c-widget-figure ">
+                                <div class="appendi_foto_utente_nome">
+
+                                </div>
+                            </div>
+                            <div class="c-widget-body">
+                                <p class="m-0">Benvenuto</p>
+                                <p class="small m-0 appendi_html"></p>
+                            </div>
+                        </div>
+                    </div>
+                 
+                    <div class="appendi_argomenti">
+                      
+                    </div>
+                    <div class="registrazione-form-condividi animated fadeinup delay-2 z-depth-1 ">
+                        <!-- Form Inputs -->
+                        <h1>Condividi</h1>
+                        <form id="pubblicaSito">
+                            <div>
+                                <div class="input-field animated fadeinright no_display">
+                                    <input data-role="none" name="prova" id="prova" value="" type="text" required>
+                                    <label for="nomeMv">Nome</label>
+                                </div>
+                                <div class="input-field animated fadeinright">
+                                    <input data-role="none" name="titolo" id="titolo" value="" type="text" >
+                                    <label for="titolo">Titolo</label>
+                                </div>
+                                <div class="input-field animated fadeinright delay-1">
+                                    <input data-role="none" name="data" id="data" value="" type="text" >
+                                    <label for="data">Data</label>
+                                </div>
+                            </div>
+                            <div class="input-field animated fadeinright delay-2">
+                                <input data-role="none" name="sottotitolo" id="sottotitolo" value="" type="text" >
+                                <label for="sottotitolo">Sottotitolo</label>
+                            </div>
+                            <div class="animated fadeinright delay-3">
+                                <label class="label_text_editor">Descrizione Breve</label>
+                            </div>
+                            <div class="input-field animated fadeinright delay-3">
+                               
+                                <textarea data-role="none" class="materialize-textarea" id="descrizione_breve" name="descrizione_breve"></textarea>
+                               
+                            </div>
+                            <div style="margin-top:10px !important" class="animated fadeinright delay-3">
+                                <label class="label_text_editor">Descrizione</label>
+                            </div>
+                            <div class="input-field animated fadeinright delay-3">
+                               
+                                <textarea data-role="none" class="materialize-textarea" id="descrizione" name="descrizione" ></textarea>
+                               
+                            </div>
+                            <div class="contenitore_checkbox">
+                                <h6>Pubblica su</h6>
+                                <p class="remember animated bouncein delay-6">
+
+                                    <div class="appendi_check">
+
+                                    </div>
+                                   
+                                </p>
+                            </div>
+                            <div class="contenitore_checkbox">
+                                <p class="remember animated bouncein delay-6">
+                                 <div id="blocco_social">
+                                     <h6>Segli social</h6>
+                                     <div class="appendi_social">
+
+                                     </div>
+                                 </div>
+                                    
+                                </p>
+                            </div>
+                            <div class="contenitore_pulsanti paragrafo_center">
+                                <div onclick="app.openFilePicker();" class="blocco_condividi_img c-widget-figure accent-color">
+                                    <i class="ion-ios-plus"></i>
+                                </div>
+                                <div onclick="app.takePicture();" class="blocco_condividi_img c-widget-figure accent-color">
+                                    <i class="ion-camera"></i>
+                                </div>
+                            </div>
+                            <div  class="grid">
+                                <div class="appendi_img">
+
+                                </div>
+                               
+                            </div> 
+                           
+                            <div id="loadingImg">
+                                <img src="img/loading.gif" />
+                            </div>
+                         
+                            <div class="box_submit_button">
+                                <div onclick="app.caricaImmagine();" id="uploadFoto" style="position:relative !important" class="waves-effect waves-light  btn-large accent-color m-b-20 animated bouncein delay-4" >
+                                    <i class="ion-upload">Upload Foto</i>
+                                </div>
+                                <input type="submit" data-role="none" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" value="Invia" id="btn_submit_infoMv">
+                            </div>
+                        
+
+                        </form>
+                    </div>
+                </div> <!-- End of Main Contents -->
+
+
+            </div> <!-- End of Page Content -->
+            <a id="apri_box_caricamento" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_caricamento">Bottom Sheet</a>
+            <a id="apri_box_upload_foto" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_upload_foto">Bottom Sheet</a>
+            <a id="apri_scegli_pubblica_sito" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#scegli_pubblica_sito">Modal simple</a>
+            <a id="apri_scegli_argomento" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#scegli_argomento">Modal simple</a>
+       
+            <!-- Footer -->
+            <footer class="page-footer  primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div> <!-- End of Page Container -->
+    </div>
+    <div data-role="page"  id="gallery">
+        <div class="m-scene">
+            <!-- Main Container -->
+            <!-- Page Content -->
+            <div class="content">
+                <div id="box_upload_foto_gallery" class="modal bottom-sheet">
+
+                </div>
+                <div id="scegli_categoria_gallery" class="modal">
+
+                </div>
+                <!-- Toolbar -->
+                <div class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="#open-right-1" data-activates="slide-out-1">
+                        <!--   <i class="ion-android-menu"></i> -->
+                        <a class="primary-text" href="#dashboard"><i class="ion-arrow-left-c"></i></a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="animated fadeinup">
+                    <div class="card animated fadeinup delay-3">
+                        <div class="c-widget">
+                            <div class="c-widget-figure">
+                                <div class="appendi_foto_utente_nome">
+
+                                </div>
+                            </div>
+                            <div class="c-widget-body">
+                                <p class="m-0">Benvenuto</p>
+                                <p class="small m-0 appendi_html"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appendi_categorie">
+
+                    </div>
+                    <form style="text-align:center">
+                        <label for="flip-aggiungi-categoria">Aggiungi categoria:</label>
+                        <input type="checkbox" onclick="switchFiltri();" data-role="flipswitch" name="flip-aggiungi-categoria" id="flip-aggiungi-categoria">
+                    </form>
+                    <div id="addCategoria" class="registrazione-form-condividi animated fadeinup delay-2 z-depth-1 paragrafo_center">
+                        <!-- Form Inputs -->
+                        <h1>Aggiungi Categoria</h1>
+                        <form id="pubblicaCategoriaGallery">
+                            <div>
+                                <div class="input-field animated fadeinright">
+                                    <input data-role="none" name="titolo_gallery" id="titolo_gallery" value="" type="text">
+                                    <label for="titolo">Titolo</label>
+                                </div>
+                            </div>
+                            <div class="box_submit_button_gallery">
+                                <input type="submit" data-role="none" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" value="Aggiungi" id="btn_submit_infoMv">
+                            </div>
+                            <div class="box_categoria_aggiunta">
+                                <div class="append_categoria_aggiunta">
+
+                                </div>
+                            </div>
+                        </form>    
+                      
+                    </div>
+                    <div class="contenitore_pulsanti_gallery">
+                        <h6 class="titolo_gallery">Carica Foto Gallery:</h6>
+                        <div onclick="app.openFilePickerGallery();" class="blocco_condividi_img c-widget-figure accent-color">
+                            <i class="ion-ios-plus"></i>
+                        </div>
+                        <div onclick="app.takePictureGallery();" class="blocco_condividi_img c-widget-figure accent-color">
+                            <i class="ion-camera"></i>
+                        </div>
+                        <div class="grid">
+                            <div class="appendi_immagini_categoria">
+
+                            </div>
+
+                        </div>
+                        <div id="loadingImgGallery">
+                            <img src="img/loading.gif" />
+                        </div>
+                        <div onclick="app.caricaImmaginiGallery();" id="uploadFotoGallery" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4">
+                            <i class="ion-upload">Upload Foto Gallery</i>
+                        </div>
+                    </div>
+                </div> <!-- End of Main Contents -->
+
+
+            </div> <!-- End of Page Content -->
+            <a id="apri_box_upload_foto_gallery" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_upload_foto_gallery">Bottom Sheet</a>
+            <a id="apri_scegli_categoria_gallery" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#scegli_categoria_gallery">Modal simple</a>
+            
+            <!-- Footer -->
+            <footer id="footer_gallery" class="page-footer footer_home primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div> <!-- End of Page Container -->
+    </div>
+    <div data-role="page" id="privacy_policy">
+        <!-- Main Container -->
+        <div class="m-scene">
+          
+            <!-- Page Content -->
+            <div class="content page">
+                <!-- Toolbar -->
+                <div class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="open-right" data-activates="slide-out">
+                        <a class="primary-text" href="javascript:history.back()"><i class="ion-arrow-left-c"></i></a>
+
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="animated fadeinup">
+                    <div class="registrazione-form privacy_page animated fadeinup delay-2 z-depth-1">
+                        <h1>Privacy Policy</h1>
+
+                        <h4>1) Diritti degli interessati</h4>
+                        <p>
+                            I soggetti a cui si riferiscono i dati personali hanno il diritto, in qualunque momento, di ottenere la conferma dell'esistenza o meno di tali dati e di conoscerne il contenuto e l'origine,verificarne l'esattezza o chiederne l'integrazione o l'aggiornamento, oppure la rettificazione (art. 7 del d.lgs. n. 196/2003).<br>
+                            Ai sensi e per gli effetti del medesimo articolo si ha il diritto di richiedere la cancellazione, la trasformazione in forma anonima o il blocco dei dati trattati in violazione di legge, nonch&eacute; di opporsi in ogni caso al loro trattamento.<br>
+                            Con particolare riferimento a quest'ultimo punto, l'interessato, in osservanza dell'art. 7 al suo punto 4, avr&agrave; sempre il diritto di opporsi, in tutto o in parte:<br><br>
+
+                            a) per motivi legittimi, al trattamento dei dati personali che lo riguardano, ancorch&eacute; pertinenti allo scopo della raccolta;<br>
+                            b) al trattamento dei dati personali che lo riguardano a fini di invio di materiale pubblicitario o di vendita diretta o per il compimento di ricerche di mercato o di comunicazione commerciale.<br>
+                            I diritti di cui all'articolo 7 possono essere esercitati con richiesta rivolta senza particolari formalit&agrave; (mediante lettera raccomandata, fax o posta elettronica attraverso i recapiti indicati sul sito stesso) al Titolare, anche tramite un incaricato, alla quale &egrave; fornito idoneo riscontro senza ritardo.<br>
+                            Considerato che lo stato di perfezionamento dei meccanismi automatici di controllo non li rende attualmente immuni da errori e disfunzioni, precisiamo che il presente documento costituisce la normativa del trattamento dei dati personali di questo sito che potr&agrave; essere aggiornata in qualsiasi momento.
+                        </p>
+
+                        <br>
+                        <h4>2) Modalit&agrave; di trattamento</h4>
+                        <p>
+                            I dati personali sono trattati con strumenti automatizzati per il tempo strettamente necessario a conseguire gli scopi per cui sono raccolti.
+                            Specifiche misure di sicurezza sono osservate per prevenire la perdita dei dati, usi illeciti o non corretti ed accessi non autorizzati.
+                        </p>
+                        <br>
+                        <h4>3) Facoltativit&agrave; dei dati trattati</h4>
+                        <p>
+                            A parte quanto specificato per i dati di navigazione, il conferimento dei dati personali indicati nei moduli di richiesta informazioni &egrave; facoltativo.
+                            Il mancato conferimento dei dati pu&ograve; comportare l'impossibilit&agrave; di ottenere quanto richiesto.
+                        </p>
+
+                        <br>
+
+                        <h4>4) Il titolare del trattamento</h4>
+                        <p>
+                            A seguito della consultazione di questo sito possono essere trattati dati relativi a persone identificate o identificabili.
+                            Il Titolare del loro trattamento &egrave; MVitalia con sede legale in Piobesi d'Alba, 12040 (CN), Str. Provinciale 11/A.
+
+                        </p>
+                        <br>
+                        <h4>5) Luogo di trattamento dei dati</h4>
+                        <p>
+                            I trattamenti connessi ai servizi web di questa applicazione mobile hanno luogo presso la sede della societ&agrave; di gestione di Simply App Web e sono curati solo da personale tecnico incaricato del trattamento e da eventuali collaboratori, incaricati di occasionali operazioni di manutenzione adeguatamente formati alla tutela della riservatezza.
+                        </p>
+                        <br>
+                        <h4>6) Tipo di dati trattati</h4>
+                        <p>
+                            a. Dati di navigazione<br>
+
+                            I sistemi informatici e le procedure software preposte al funzionamento di questa applicazione mobile acquisiscono, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di Internet.<br>
+                            Si tratta di informazioni che non sono raccolte per essere associate ad interessi identificati, ma che per loro stessa natura potrebbero, attraverso elaborazioni ed associazioni con dati detenuti da terzi, permettere l'identificazione degli utenti.<br>
+
+                        <p>
+                            b. Dati forniti volontariamente dall'utente<br>
+
+                            L'invito facoltativo, esplicito e volontario di posta elettronica agli indirizzi indicati su questo sito comporta la successiva acquisizione dell'indirizzo del mittente, necessario per rispondere alle richieste, nonch&eacute; agli eventuali altri dati personali inseriti nella e-mail.
+                            <br><br>
+                            c. Cookies<br>
+
+                            Nessun dato personale degli utilizzatori viene in proposito acquisito dalla applicazione mobile.<br>
+                            Non viene fatto uso di cookies per la trasmissione di informazioni di carattere personale, n&eacute; vengono utilizzati c.d. Cookies persistenti di alcun tipo, ovvero sistemi per il tracciamento degli utenti. L'uso di c.d. Cookies di sessione (che non vengono memorizzati in modo persistente sul computer dell'utente e si eliminano con la chiusura del browser) &egrave; strettamente limitato alla trasmissione di identificativi di sessione (costituiti da numeri casuali generati dal server) necessari per consentire l'esplorazione sicura ed efficiente del sito.<br>
+                            I c.d. Cookies di sessione usati in questo sito evitano il ricorso ad altre tecnologie informatiche che creano potenziale pregiudizio per la riservatezza della navigazione degli utilizzatori e non consentono l'acquisizione di dati personali sensibili identificativi dell'utente.<br>
+                            In questo sito si fa uso di cokies provenienti da Social Network (Facebook, You Tube, Twitter) e Servizio Statistiche di Google (Google Analytics).<br /><br />
+                            Per consultare l’informativa privacy della società Google, relativa al servizio Google Analytics, La preghiamo di visitare il sito Internet <a href="http://www.google.com/intl/en/analytics/privacyoverview.html" target="_blank">clicca qui</a><br />
+
+                            Per conoscere le norme sulla privacy di Google La preghiamo di vistare il sito Internet <a href="http://www.google.com/intl/it/privacy/privacy-policy.html" target="_blank">clicca qui</a>
+                        </p>
+                        <br />
+                        </p>
+                        <br>
+                        <h4>7) Protezione dei dati personali</h4>
+                        <p>
+                            In questo articolo descriviamo le modalit&agrave; di gestione della applicazione mobile in riferimento al trattamento dei dati personali degli utenti che lo consultano. Si tratta di un'informativa che &egrave; resa ai sensi dell'art. 13 del D.Lgs. n. 196/2003 (Codice in materia di protezione dei dati personali) a coloro che interagiscono con i servizi web, accessibili per via telematica a partire dall'indirizzo: "http://simplyappweb.mvclienti.com/" corrispondente alla pagina iniziale del sito dei clienti di MVitalia.<br>
+                            L'informativa &egrave; resa solo ed esclusivamente per questo sito web e applicazione mobile e non anche per altri siti web o applicazioni mobile eventualmente consultati dall'utente tramite i link presenti sulle pagine del sito medesimo.
+                        </p>
+                        <br>
+                        <h4>8) Diritti ed obblighi</h4>
+                        <p>
+                            Questa applicazione mobile contiene informazioni e documenti generali relativi a MVitalia pubblicati a solo scopo informativo. Tutte le informazioni, il materiale, le immagini e i documenti presenti su questa applicazione mobile sono tutelati dalle norme sul diritto d'autore e ne &egrave; vietato l'uso senza espresso consenso scritto. Il materiale su questa applicazione mobile sito &egrave; di esclusiva propriet&agrave; di MVitalia.
+                        </p>
+                    </div><!-- End of Main Contents -->
+                </div> <!-- End of Main Contents -->
+                <!-- Main Content -->
+            </div> <!-- End of Page Content -->
+            <!-- Footer -->
+            <footer class="page-footer  primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div> <!-- End of Page Container -->
+
+    </div>
+    <div id="storico" data-role="page">
+        <div class="m-scene">
+            <!-- Main Container -->
+            <!-- Page Content -->
+            <div class="content grey-blue page">
+                <div id="box_cancellazione_news" class="modal bottom-sheet">
+
+                </div>
+                <div id="no_news" class="modal bottom-sheet">
+
+                </div>
+                <!-- Toolbar -->
+                <div class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="#open-right-1" data-activates="slide-out-1">
+                        <!--   <i class="ion-android-menu"></i> -->
+                        <a class="primary-text" href="#dashboard"><i class="ion-arrow-left-c"></i></a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="animated fadeinup">
+                    <div class="card animated fadeinup delay-3">
+                        <div class="c-widget">
+                            <div class="c-widget-figure">
+                                <div class="appendi_foto_utente_nome">
+
+                                </div>
+                            </div>
+                            <div class="c-widget-body">
+                                <p class="m-0">Benvenuto</p>
+                                <p class="small m-0 appendi_html"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appendi_argomenti_storico">
+
+                    </div>
+                    <form style="text-align:center">
+                        <label for="flip-checkbox-1">Filtri Argomenti:</label>
+                        <input type="checkbox" onclick="switchFiltri();" data-role="flipswitch" name="flip-checkbox-1" id="flip-checkbox-1">
+                    </form>
+                  
+                    <div id="filtri" class="margin_padding_filtri registrazione-form-condividi animated fadeinup delay-2 z-depth-1 paragrafo_center">
+                        <!-- Form Inputs -->
+                        <div class="appendi_filtri">
+                            <h1 class="titolo_filtro">Filtri</h1>
+                            <div class='controls mb0'>
+                                <label>Stato:</label>
+                                <button style='margin-bottom:5px; margin-top:15px' onclick='filtraArgomento("si","Attivo")' class='filter' id="stato_attivo_filtro">Attivo</button>
+                                <button style='margin-bottom:5px; margin-top:15px' onclick='filtraArgomento("si","Non Attivo")' class='filter' id="stato_non_attivo_filtro">Non Attivo</button>
+                            </div>
+                        </div>
+                            <div class="input-field animated fadeinright delay-2">
+                                <input data-role="none" name="ricerca" class="valid" id="ricerca" value="" type="text">
+                                <label for="ricerca" id="ricerca_lbl">Ricerca Libera</label>
+                            </div>   
+                        <div class="box_submit_button">
+                            <input type="button" data-role="none" onclick='filtraArgomento("no","no")' class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" value="Ricerca" id="btn_submit_infoMv">
+                        </div>
+                    </div>
+                    <div class="appendi_news">
+
+                    </div>
+                    
+
+                    <!-- Footer -->
+                 
+
+                </div> <!-- End of Main Contents -->
+                <a id="apri_box_cancellazione_news" class="no_display waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_cancellazione_news">Bottom Sheet</a>
+                <a id="apri_no_news" class="no_display waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#no_news">Bottom Sheet</a>
+                <footer id="si_fixed_footer" class="page-footer footer_home primary-color">
+                    <div class="footer-copyright blue darken-1">
+                        <div class="container">
+                            2017 Simply App web
+                            <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                        </div>
+                    </div>
+                </footer>
+                <footer id="no_fixed_footer" class="page-footer   primary-color">
+                    <div class="footer-copyright blue darken-1">
+                        <div class="container">
+                            2017 Simply App web
+                            <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                        </div>
+                    </div>
+                </footer>
+            </div> <!-- End of Page Content -->
+        </div> 
+    </div>
+    <div data-role="page" id="modifica">
+        <div class="m-scene">
+            <div class="content">
+                <div id="box_cancellazione_media_argomento" class="modal bottom-sheet">
+
+                </div>
+                <div id="box_upload_foto_modifica" class="modal bottom-sheet">
+
+                </div>
+                <div id="box_aggiornamento" class="modal bottom-sheet">
+
+                </div>
+                <!-- Toolbar -->
+                <div class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="#open-right-1" data-activates="slide-out-1">
+                        <!--   <i class="ion-android-menu"></i> -->
+                        <a class="primary-text" href="javascript:history.back()"><i class="ion-arrow-left-c"></i></a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="animated fadeinup">
+                    <div class="card animated fadeinup delay-3">
+                        <div class="c-widget">
+                            <div class="c-widget-figure">
+                                <div class="appendi_foto_utente_nome">
+
+                                </div>
+                            </div>
+                            <div class="c-widget-body">
+                                <p class="m-0">Benvenuto</p>
+                                <p class="small m-0 appendi_html"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <div class="registrazione-form-condividi animated fadeinup delay-2 z-depth-1">
+                        <!-- Form Inputs -->
+                        <div class="appendi_titolo_modifica">
+                            <h1>Modifica</h1>
+                        </div>
+                        <form id="modificaArgomento">
+                            <div>
+                                <div class="input-field animated fadeinright no_display">
+                                    <input data-role="none" name="prova_modifica" id="prova_modifica" value="" type="text" required>
+                                    <label for="nomeMv">Nome</label>
+                                </div>
+                                <div class="input-field animated fadeinright">
+                                    <input data-role="none" name="titolo_modifica" class="valid" id="titolo_modifica" value="" type="text">
+                                    <label for="titolo" id="titolo_lbl">Titolo</label>
+                                </div>
+                                <div class="input-field animated fadeinright delay-1">
+                                    <input data-role="none" name="data_modifica" class="valid" id="data_modifica" value="" type="text">
+                                    <label for="data" id="data_lbl">Data</label>
+                                </div>
+                            </div>
+                            <div class="input-field animated fadeinright delay-2">
+                                <input data-role="none" name="sottotitolo_modifica" class="valid" id="sottotitolo_modifica" value="" type="text">
+                                <label for="sottotitolo" id="sottotitolo_lbl">Sottotitolo</label>
+                            </div>
+                            <div class="animated fadeinright delay-3">
+                                <label class="label_text_editor">Descrizione Breve</label>
+                            </div>
+                            <div class="input-field animated fadeinright delay-3">
+                                <textarea data-role="none" class="materialize-textarea valid" id="descrizione_breve_modifica" name="descrizione_breve_modifica"></textarea>
+                               
+                            </div>
+                            <div class="animated fadeinright delay-3">
+                                <label class="label_text_editor">Descrizione </label>
+                            </div>
+                            <div class="input-field animated fadeinright delay-3">
+                                <textarea data-role="none" class="materialize-textarea valid"  id="descrizione_modifica" name="descrizione_modifica"></textarea>
+                            
+                            </div>
+                            <div class="contenitore_pulsanti paragrafo_center">
+                                <div onclick="app.openFilePickerModifica();" class="blocco_condividi_img c-widget-figure accent-color">
+                                    <i class="ion-ios-plus"></i>
+                                </div>
+                                <div onclick="app.takePictureModifica();" class="blocco_condividi_img c-widget-figure accent-color">
+                                    <i class="ion-camera"></i>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="appendi_img_modifica">
+
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="appendi_img_modifica_nuove">
+
+                                </div>
+                            </div> 
+
+                            <div id="loadingImgModifica">
+                                <img src="img/loading.gif" />
+                            </div>
+
+                            <div class="box_submit_button">
+                                <div onclick="app.caricaImmagineModifica();" id="uploadFotoModificaFile" style="position:relative !important" class="waves-effect waves-light  btn-large accent-color m-b-20 animated bouncein delay-4">
+                                    <i class="ion-upload">Upload Foto Nuove</i>
+                                </div>
+                                <input type="submit" data-role="none" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" value="Salva" id="btn_submit_infoMv">
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div> <!-- End of Main Contents -->
+
+
+            </div> <!-- End of Page Content -->
+            <a id="apri_box_cancellazione_media_argomento" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_cancellazione_media_argomento">Bottom Sheet</a>
+            <a id="apri_box_upload_foto_modifica" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_upload_foto_modifica">Bottom Sheet</a>
+            <a id="apri_box_aggiornamento" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_aggiornamento">Bottom Sheet</a>
+            <!-- Footer -->
+            <footer class="page-footer  primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div> <!-- End of Page Container -->
+    </div>
+    <div data-role="page" id="modifica_gallery">
+        <div class="m-scene">
+            <div class="content">
+                <div id="box_cancellazione_foto_gallery" class="modal bottom-sheet">
+
+                </div>
+                <div id="no_gallery_cat" class="modal bottom-sheet">
+
+                </div>
+                <div id="no_foto_gallery" class="modal bottom-sheet">
+
+                </div>
+                <!-- Toolbar -->
+                <div class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="#open-right-1" data-activates="slide-out-1">
+                        <!--   <i class="ion-android-menu"></i> -->
+                        <a class="primary-text" href="#dashboard"><i class="ion-arrow-left-c"></i></a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="animated fadeinup">
+                    <div class="card animated fadeinup delay-3">
+                        <div class="c-widget">
+                            <div class="c-widget-figure">
+                                <div class="appendi_foto_utente_nome">
+
+                                </div>
+                            </div>
+                            <div class="c-widget-body">
+                                <p class="m-0">Benvenuto</p>
+                                <p class="small m-0 appendi_html"></p>
+                            </div>
+                        </div>
+                    </div>
+                 
+                        <!-- Form Inputs -->
+                        <div>
+                            <h5 style="text-align:center">Storico Gallery</h5>
+                        </div>
+                    <div class="appendi_categorie_filtri">
+
+                    </div>
+                        <div class="grid">
+                            <div class="appendi_storico_gallery">
+
+                            </div>
+                        </div>
+
+                 
+                    </div> <!-- End of Main Contents -->
+
+
+            </div> <!-- End of Page Content -->
+            <a id="apri_box_cancellazione_foto_gallery" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_cancellazione_foto_gallery">Bottom Sheet</a>
+            <a id="apri_no_gallery_cat" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#no_gallery_cat">Bottom Sheet</a>
+            <a id="apri_no_foto_gallery" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#no_foto_gallery">Bottom Sheet</a>
+            
+            <!-- Footer -->
+            <footer id="si_fixed_footer_modifica_gallery" class="page-footer footer_home primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+            <footer id="no_fixed_footer_modifica_gallery" class="page-footer  primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div> <!-- End of Page Container -->
+    </div>
+    <div data-role="page" id="modifica_foto_gallery">
+        <div class="m-scene">
+            <div class="content">
+                <div id="box_upload_foto_singola_gallery" class="modal bottom-sheet">
+            
+                </div>
+                <div id="box_aggiornamento_foto_singola" class="modal bottom-sheet">
+
+                </div>
+                <!-- Toolbar -->
+                <div class="toolbar primary-color">
+                    <span class="title">Simply App Web</span>
+                    <div class="open-right" id="#open-right-1" data-activates="slide-out-1">
+                        <!--   <i class="ion-android-menu"></i> -->
+                        <a class="primary-text" href="#dashboard"><i class="ion-arrow-left-c"></i></a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="animated fadeinup">
+                    <div class="card animated fadeinup delay-3">
+                        <div class="c-widget">
+                            <div class="c-widget-figure">
+                                <div class="appendi_foto_utente_nome">
+
+                                </div>
+                            </div>
+                            <div class="c-widget-body">
+                                <p class="m-0">Benvenuto</p>
+                                <p class="small m-0 appendi_html"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appendi_titolo_modifica_foto_singola">
+                        <h5 style="text-align:center">Modifica Foto Gallery</h5>
+                    </div>
+                    <div class="appendi_categorie_modifica">
+
+                    </div>
+                    <div style="width:100%">
+                        <div class="appendi_immmagine_modifica_singola">
+
+                        </div>
+                        <div class="contenitore_pulsanti_mod" style="text-align:center;">
+                            <h5 style="font-size:12px; margin-bottom:10px;">Cambia Foto</h5>
+                            <div onclick="app.openFilePickerModificaFotoSingola();" class="blocco_condividi_img c-widget-figure accent-color">
+                                <i class="ion-ios-plus"></i>
+                            </div>
+                            <div onclick="app.takePictureModificaFotoSingola();" class="blocco_condividi_img c-widget-figure accent-color">
+                                <i class="ion-camera"></i>
+                            </div>
+
+                        </div>
+                        <div onclick="app.caricaImmagineModificaFotoSingola();" id="uploadFotoSingolaModificaGallery" style="position:relative !important; margin-top:10px;" class="waves-effect waves-light btn-flat accent-color m-b-20 animated bouncein delay-4">
+                            <i class="ion-upload">Upload Foto Nuove</i>
+                        </div>
+                    </div>
+                  
+                   
+                        <!-- Form Inputs -->
+                       
+                    <div style="margin-top:20px;" class="appendi_stato_foto_modifica">
+                        <div class='controls'>
+                            <label style="margin-left:10px;">Modifica Stato:</label>
+                            <button style='margin-bottom:10px; margin-top:15px' onclick='clickStatoAttivoMod();' class='filter' id="stato_attivo">Attivo</button>
+                            <button style='margin-bottom:10px; margin-top:15px' onclick='clickStatoNoAttivoMod();' class='filter' id="stato_non_attivo">Non Attivo</button>
+                        </div>
+                    </div>
+                    <div style="float:left !important" class="appendi_titolo_modifica">
+                        <h3 style="font-size:12px;">Titolo Foto (opzionale)</h3>
+                    </div>
+                        <form id="modificaFotoGallery">
+                            <div>
+                                <div class="input-field animated fadeinright no_display">
+                                    <input data-role="none" name="prova_modifica" id="prova_modifica" value="" type="text" required>
+                                    <label for="nomeMv">Nome</label>
+                                </div>
+                                <div class="input-field animated fadeinright">
+                                    <input data-role="none" name="titolo_modifica_foto" class="valid" id="titolo_modifica_foto" value="" type="text">
+                                    
+                                </div>
+                             
+                            </div>
+                            <div class="box_submit_button">
+                                <div onclick="app.caricaImmagineModifica();" id="uploadFotoModifica" style="position:relative !important" class="waves-effect waves-light  btn-large accent-color m-b-20 animated bouncein delay-4">
+                                    <i class="ion-upload">Upload Foto Nuove</i>
+                                </div>
+                                <input type="button" data-role="none" onclick="salvaFotoSingolaGallery()" class="waves-effect waves-light btn-large accent-color m-b-20 animated bouncein delay-4" value="Salva" id="btn_submit_infoMv">
+                            </div>
+                       </form>
+                  
+                            
+                           
+
+                            <div id="loadingImgModificaFotoSingola">
+                                <img src="img/loading.gif" />
+                            </div>
+
+
+                          
+
+
+                     
+                    </div>
+                </div> <!-- End of Main Contents -->
+
+
+            </div> <!-- End of Page Content -->
+        
+        <a id="apri_box_upload_foto_singola_gallery" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_upload_foto_singola_gallery">Bottom Sheet</a>
+        <a id="apri_box_aggiornamento_foto_singola" class="no_display waves-effect waves-light btn-large modal-trigger primary-color width-100 m-b-20" href="#box_aggiornamento_foto_singola">Bottom Sheet</a>
+            <!-- Footer -->
+            <footer class="page-footer  primary-color">
+                <div class="footer-copyright blue darken-1">
+                    <div class="container">
+                        2017 Simply App web
+                        <a class="grey-text text-lighten-4 right" href="#privacy_policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+        </div> <!-- End of Page Container -->
+    
+    <!-- FINE PRIVACY POLICY -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>
+    <script src="js/jquery.smoothState.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/functions.js"></script>
+    <script  src="js/tinymce/tinymce.min.js"></script>
+    <script>
+    tinymce.init({
+        selector: 'textarea',
+        branding: false,
+        menubar:false,
+        toolbar1: 'styleselect | bold italic | alignleft aligncenter alignright alignjustify',
+        setup: function(editor) {
+            editor.on('init', function(e) {
+                
+            });
+        }
+    });
+    </script>  
+   
+
+   
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+
+    <script src="js/funzioni_app.js"></script>
+</body>
+
+</html>
