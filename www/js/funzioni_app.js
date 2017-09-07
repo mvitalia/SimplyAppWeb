@@ -313,6 +313,7 @@ $(document).on("pagebeforeshow", "#condividi", function () {
     tinyMCE.get('descrizione').setContent("");
     tinyMCE.get('descrizione_breve').setContent("");
     $("#uploadFoto").hide();
+    localStorage.setItem("sito_check", 1);
     //Cancello le foto rimaste nella tabella media del cellulare caricate in precedenza
     db = window.openDatabase("SimplyAppWeb", "1.0", "Database simpliappweb", 200000);
     db.transaction(
