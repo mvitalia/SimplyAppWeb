@@ -257,7 +257,7 @@ var app = {
         }
 
         function fail(error) {
-            alert("An error has occurred: Code = " = error.code);
+          //  alert("An error has occurred: Code = " = error.code);
         }
         
     },
